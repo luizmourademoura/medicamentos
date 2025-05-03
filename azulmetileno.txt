@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Azul de Metileno</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #0056b3;
+    }
+    h2 {
+      color: #0077cc;
+    }
+    ul {
+      margin-top: 0;
+    }
+    .box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Azul de Metileno</h1>
+    <p>O azul de metileno é um corante com propriedades antissépticas, antifúngicas e antiparasitárias leves, amplamente utilizado em aquários, especialmente em incubatórios e para tratamento de filhotes e peixes sensíveis.</p>
+
+    <h2>Para que serve o azul de metileno em peixes?</h2>
+    <p>O azul de metileno é eficaz contra:</p>
+    <ul>
+      <li><strong>Parasitas externos protozoários:</strong> Como Ichthyophthirius multifiliis (ictio), Oodinium (doença do veludo) e Costia.</li>
+      <li><strong>Fungos:</strong> Previne e trata infecções fúngicas em ovos e peixes.</li>
+      <li><strong>Bactérias:</strong> Leve ação antibacteriana em infecções superficiais leves.</li>
+      <li><strong>Intoxicação por nitrito:</strong> Ajuda na conversão de metahemoglobina de volta à hemoglobina funcional.</li>
+    </ul>
+
+    <h2>Dosagem</h2>
+    <ul>
+      <li><strong>Tratamento de longa duração:</strong> 5 mL de solução a 1% para cada 40 L de água.</li>
+      <li><strong>Banhos de curta duração:</strong> 10 mL de solução a 1% para cada 10 L de água por 30 a 60 minutos.</li>
+      <li><strong>Tratamento de ovos:</strong> 5 mL da solução a 1% para cada 10 L de água.</li>
+    </ul>
+
+    <h2>Duração da dosagem e repetição</h2>
+    <ul>
+      <li><strong>Tratamento de longa duração:</strong> 3 a 5 dias, com trocas parciais diárias de 25% e reposição do medicamento.</li>
+      <li><strong>Banhos de curta duração:</strong> Podem ser repetidos a cada 12 a 24 horas, se necessário.</li>
+      <li><strong>Ovos:</strong> Água com azul de metileno é mantida durante a incubação, com trocas parciais conforme necessário.</li>
+    </ul>
+
+    <h2>Observações importantes</h2>
+    <ul>
+      <li>É seguro para peixes na dose adequada, mas algumas espécies sensíveis podem reagir mal.</li>
+      <li>Tóxico para invertebrados como caracóis e camarões.</li>
+      <li>Descolore a água e pode manchar silicone, decorações e roupas.</li>
+      <li>Remover mídias químicas filtrantes durante o tratamento.</li>
+      <li>Manter o aquário com pouca luz durante o tratamento.</li>
+      <li>Garantir boa oxigenação.</li>
+      <li>Diagnóstico correto é essencial para uso apropriado.</li>
+    </ul>
+
+    <h2>Recomendações</h2>
+    <ul>
+      <li>Siga as instruções da bula do produto específico.</li>
+      <li>Observe os peixes durante o tratamento.</li>
+      <li>Remova invertebrados sensíveis para outro aquário.</li>
+      <li>Realize trocas parciais conforme necessário.</li>
+      <li>Após o tratamento, utilize carvão ativado para remover resíduos do medicamento.</li>
+    </ul>
+
+    <p>O azul de metileno é uma ferramenta útil para problemas leves e cuidados com ovos e filhotes. Use com atenção às dosagens e precauções.</p>
+  </div>
+</body>
+</html>
