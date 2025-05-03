@@ -1,10 +1,65 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Rápida de Medicamentos para Aquarismo</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 0 10px;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #medicamentoInfo {
+            background-color: #e6ffe6; /* verde claro */
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            margin: 40px 0 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -30,7 +85,7 @@
             <option value="nitrofurantoina.html">Nitrofurantoína</option>
             <option value="azitromicina.html">Azitromicina</option>
             <option value="levamisol.html">Levamisol</option>
-            <option value="metronidazol.html">Metronizadol</option>
+            <option value="metronidazol.html">Metronidazol</option>
             <option value="kanamicina.html">Kanamicina</option>
         </select>
         
@@ -43,17 +98,16 @@
 
     <script>
         function loadMedicamento() {
-            var medicamento = document.getElementById("medicamento").value;
+            const medicamento = document.getElementById("medicamento").value;
+            const divInfo = document.getElementById("medicamentoInfo");
+
             if (medicamento) {
-                var iframe = document.createElement("iframe");
+                const iframe = document.createElement("iframe");
                 iframe.src = medicamento;
-                iframe.style.width = "100%";
-                iframe.style.height = "500px";
-                var divInfo = document.getElementById("medicamentoInfo");
                 divInfo.innerHTML = "";
                 divInfo.appendChild(iframe);
             } else {
-                document.getElementById("medicamentoInfo").innerHTML = "";
+                divInfo.innerHTML = "";
             }
         }
     </script>
