@@ -3,66 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulta Rápida de Medicamentos</title>
+  <title>Consulta de Medicamentos - PLAM</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      padding: 10px;
-      background-color: #f0f0f0;
-      max-width: 800px;
-      margin: auto;
+      margin: 0;
+      padding: 1rem;
+      background-color: #f0f8ff;
     }
     h1 {
-      color: #2a2a2a;
+      text-align: center;
+      font-size: 1.5rem;
     }
     select {
-      padding: 0.5em;
-      font-size: 1em;
+      display: block;
       width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 1em;
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      background-color: #ffcc80;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-    #medicamento-info {
-      background: #ffffff;
-      padding: 1em;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    #conteudo-medicamento {
+      background-color: #e8f5e9;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
-  <h1>Consulta Rápida de Medicamentos</h1>
-  <label for="medicamento">Selecione um medicamento:</label>
+  <h1>Consulta de Medicamentos para Aquarismo</h1>
+
+  <label for="medicamento">Selecione o medicamento:</label>
   <select id="medicamento">
-    <option value="">-- Escolha --</option>
+    <option value="">-- Escolha um medicamento --</option>
     <option value="verdemalaquita.html">Verde de Malaquita</option>
-    <!-- Adicione mais opções conforme necessário -->
+    <!-- Mais opções podem ser adicionadas aqui -->
   </select>
-  <div id="medicamento-info">Selecione um medicamento para ver as informações.</div>
+
+  <div id="conteudo-medicamento">Selecione um medicamento para ver as informações.</div>
 
   <script>
-    document.getElementById('medicamento').addEventListener('change', function() {
-      const arquivo = this.value;
-      const infoDiv = document.getElementById('medicamento-info');
+    const select = document.getElementById('medicamento');
+    const container = document.getElementById('conteudo-medicamento');
 
-      if (!arquivo) {
-        infoDiv.innerHTML = 'Selecione um medicamento para ver as informações.';
-        return;
+    select.addEventListener('change', () => {
+      const arquivo = select.value;
+      if (arquivo) {
+        fetch(arquivo)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Arquivo não encontrado');
+            }
+            return response.text();
+          })
+          .then(data => {
+            container.innerHTML = data;
+          })
+          .catch(error => {
+            container.innerHTML = 'Erro ao carregar as informações do medicamento.';
+            console.error('Erro ao buscar o arquivo:', error);
+          });
+      } else {
+        container.innerHTML = 'Selecione um medicamento para ver as informações.';
       }
-
-      fetch(arquivo)
-        .then(response => {
-          if (!response.ok) throw new Error('Erro ao carregar o arquivo');
-          return response.text();
-        })
-        .then(data => {
-          infoDiv.innerHTML = data;
-        })
-        .catch(error => {
-          infoDiv.innerHTML = 'Erro ao carregar as informações do medicamento.';
-        });
     });
   </script>
 </body>
