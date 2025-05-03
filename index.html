@@ -1,77 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consulta de Medicamentos - PLAM</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 1rem;
-      background-color: #f0f8ff;
-    }
-    h1 {
-      text-align: center;
-      font-size: 1.5rem;
-    }
-    select {
-      display: block;
-      width: 100%;
-      padding: 0.5rem;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-      background-color: #ffcc80;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    #conteudo-medicamento {
-      background-color: #e8f5e9;
-      padding: 1rem;
-      border-radius: 4px;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta Rápida de Medicamentos para Aquarismo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Consulta de Medicamentos para Aquarismo</h1>
+    <header>
+        <h1>Consulta Rápida de Medicamentos para Aquarismo</h1>
+    </header>
+    
+    <section>
+        <label for="medicamento">Escolha o medicamento:</label>
+        <select id="medicamento" onchange="loadMedicamento()">
+            <option value="">Selecione...</option>
+            <option value="verdemalaquita.html">Verde Malaquita</option>
+            <option value="mebenzadol.html">Mebendazol</option>
+            <option value="niclosamida.html">Niclosamida</option>
+            <option value="albendazol.html">Albendazol</option>
+            <option value="piperazina.html">Piperazina</option>
+            <option value="formol.html">Formol</option>
+            <option value="sulfatocobre.html">Sulfato de Cobre</option>
+            <option value="fembendazol.html">Fembendazol</option>
+            <option value="azulmetileno.html">Azul de Metileno</option>
+            <option value="verdemalaquita.html">Verde de Malaquita</option>
+            <option value="permanganatopotassio.html">Permanganato de Potássio</option>
+            <option value="sulfatoneomicina.html">Sulfato de Neomicina</option>
+            <option value="acidooxolinico.html">Ácido Oxolínico</option>
+            <option value="nitrofurantoina.html">Nitrofurantoína</option>
+            <option value="azitromicina.html">Azitromicina</option>
+        </select>
+        
+        <div id="medicamentoInfo"></div>
+    </section>
 
-  <label for="medicamento">Selecione o medicamento:</label>
-  <select id="medicamento">
-    <option value="">-- Escolha um medicamento --</option>
-    <option value="verdemalaquita.html">Verde de Malaquita</option>
-    <option value="mebendazol.html">Mebendazol</option>
-    <!-- Mais opções podem ser adicionadas aqui -->
-  </select>
+    <footer>
+        <p>Consulta rápida de medicamentos para aquarismo. Use com cautela e consulte um especialista.</p>
+    </footer>
 
-  <div id="conteudo-medicamento">Selecione um medicamento para ver as informações.</div>
-
-  <script>
-    const select = document.getElementById('medicamento');
-    const container = document.getElementById('conteudo-medicamento');
-
-    select.addEventListener('change', () => {
-      const arquivo = select.value;
-      if (arquivo) {
-        fetch(arquivo)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Arquivo não encontrado');
+    <script>
+        function loadMedicamento() {
+            var medicamento = document.getElementById("medicamento").value;
+            if (medicamento) {
+                var iframe = document.createElement("iframe");
+                iframe.src = medicamento;
+                iframe.style.width = "100%";
+                iframe.style.height = "500px";
+                var divInfo = document.getElementById("medicamentoInfo");
+                divInfo.innerHTML = "";
+                divInfo.appendChild(iframe);
+            } else {
+                document.getElementById("medicamentoInfo").innerHTML = "";
             }
-            return response.text();
-          })
-          .then(data => {
-            container.innerHTML = data;
-          })
-          .catch(error => {
-            container.innerHTML = 'Erro ao carregar as informações do medicamento.';
-            console.error('Erro ao buscar o arquivo:', error);
-          });
-      } else {
-        container.innerHTML = 'Selecione um medicamento para ver as informações.';
-      }
-    });
-  </script>
+        }
+    </script>
 </body>
 </html>
