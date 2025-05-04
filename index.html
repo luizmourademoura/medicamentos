@@ -133,5 +133,22 @@
             .catch(err => console.error("Erro ao registrar o Service Worker:", err));
     }
 </script>
+    <script>
+    // Ordena os itens da lista de medicamentos em ordem alfabética
+    window.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById("medicamento");
+        const options = Array.from(select.options)
+            .filter(option => option.value) // ignora "Selecione..."
+            .sort((a, b) => a.text.localeCompare(b.text, 'pt-BR'));
+
+        // Armazena o primeiro option ("Selecione...")
+        const primeiro = select.options[0];
+
+        // Limpa o select e reinsere em ordem
+        select.innerHTML = '';
+        select.appendChild(primeiro); // adiciona "Selecione..." novamente
+        options.forEach(option => select.appendChild(option));
+    });
+</script>
 </body>
 </html>
